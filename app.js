@@ -2,6 +2,7 @@
 
 const taskInput = document.querySelector('input.task');
 const lists = document.querySelector('.lists');
+const test = "2";
 
 const favsSection = document.querySelector('.favs');
 const favTitle = document.querySelector('.favs h3');
