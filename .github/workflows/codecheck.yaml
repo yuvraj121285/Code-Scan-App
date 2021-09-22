@@ -1,0 +1,18 @@
+name: Vulnerability Check
+on:
+  workflow_dispatch:
+    
+jobs: 
+
+  Scanning Code:
+    runs-on: ubuntu-latest
+    environment: 
+      name: development
+    steps:
+    - name: Checkout Sample Code
+      uses: actions/checkout@v2
+     
+    - name: Terraform Apply
+      id: apply
+      run: terraform apply -auto-approve -var 'client_secret=${{ secrets.CLIENT_SECRET }}' -var 'subscription_id=${{ secrets.SUBSCRIPTION_ID }}' -var 'client_id=${{ secrets.CLIENT_ID }}' -var 'tenant_id=${{ secrets.TENANT_ID }}'
+      working-directory: ./Infra
